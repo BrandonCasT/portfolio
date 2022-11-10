@@ -1,69 +1,61 @@
 <?php
+include("connection.php");
+$con = connection();
 
-    include("conexion.php")
-    $conn = conectar();
-    $sql = "SELECT * FROM infolks";
-    $query = mysqli_query($conn, $sql);
-    $row = mysqli_fectch_array($query);
-
+$sql = "SELECT * FROM infolks";
+$query = mysqli_query($con, $sql);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        
-    </head>
-    <body>
-            <div class="container mt-5">
-                    <div class="row"> 
-                        
-                        <div class="col-md-3">
-                            <h1>Ingrese datos</h1>
-                                <form action="insertar.php" method="POST">
 
-                                    <input type="text" class="form-control mb-3" name="nombre" placeholder="Nombres">
-                                    <input type="text" class="form-control mb-3" name="apellido" placeholder="Apellidos">
-                                    <input type="text" class="form-control mb-3" name="Edad" placeholder="Edad">
-                                    
-                                    <input type="submit" class="btn btn-primary">
-                                </form>
-                        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/style.css" rel="stylesheet">
+    <title>Servidores CRUD</title>
+</head>
 
-                        <div class="col-md-8">
-                            <table class="table" >
-                                <thead class="table-success table-striped" >
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Apellido</th>
-                                        <th>Edad</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
+<body>
+    <div class="users-form">
+        <h1>Crear usuario</h1>
+        <form action="insert_user.php" method="POST">
+            <input type="text" name="name" placeholder="Nombre">
+            <input type="text" name="lastname" placeholder="Apellidos">
+            <input type="text" name="age" placeholder="Edad">
+            <input type="submit" value="Agregar">
+        </form>
+    </div>
 
-                                <tbody>
-                                        <?php
-                                            while($row=mysqli_fetch_array($query)){
-                                        ?>
-                                            <tr>
-                                                <th><?php  echo $row['name']?></th>
-                                                <th><?php  echo $row['lastname']?></th>
-                                                <th><?php  echo $row['age']?></th>  
-                                                <th><a href="actualizar.php?id=<?php echo $row['id'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
-                                            </tr>
-                                        <?php 
-                                            }
-                                        ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>  
-            </div>
-    </body>
+    <div class="users-table">
+        <h2>Usuarios registrados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>edad</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = mysqli_fetch_array($query)): ?>
+                    <tr>
+                        <th><?= $row['id'] ?></th>
+                        <th><?= $row['name'] ?></th>
+                        <th><?= $row['lastname'] ?></th>
+                        <th><?= $row['age'] ?></th>
+                        <th><a href="update.php?id=<?= $row['id'] ?>" class="users-table--edit">Editar</a></th>
+                        <th><a href="delete_user.php?id=<?= $row['id'] ?>" class="users-table--delete" >Eliminar</a></th>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
 </html>
