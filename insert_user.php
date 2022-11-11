@@ -8,7 +8,7 @@ $lastname = $_POST['lastname'];
 $age = $_POST['age'];
 
 
-$sql = "INSERT INTO infolks VALUES ('$id','$name','$lastname','$age')";
+$sql = "INSERT INTO infolks VALUES('$id','$name','$lastname','$age')";
 $query = mysqli_query($con, $sql);
 
 if($query){
