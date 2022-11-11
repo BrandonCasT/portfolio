@@ -18,9 +18,7 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-.users-form form input[type=text],
-.users-form form input[type=password],
-.users-form form input[type=email]{
+.users-form form input[type=text]{
     padding: 8px;
     border:2px solid #aaa;
     border-radius:4px;
@@ -28,9 +26,7 @@
     transition:.3s;
 }
 
-.users-form form input[type=text]:focus,
-.users-form form input[type=password]:focus,
-.users-form form input[type=password]:focus{
+.users-form form input[type=text]:focus{
     border-color:dodgerBlue;
     box-shadow:0 0 6px 0 dodgerBlue;
 }
