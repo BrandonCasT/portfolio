@@ -1,0 +1,92 @@
+/* Estilos generales */
+body {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos del encabezado */
+h1 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos de la imagen */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+/* Estilos de las secciones */
+.section {
+    margin-bottom: 40px;
+}
+
+.section h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.section ul li {
+    margin-bottom: 5px;
+}
+
+/* Estilos del área de proyectos */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.projects .project {
+    flex-basis: 48%;
+    background-color: #313131;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.projects .project h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Estilos del área de contacto */
+.contact {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.contact a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/* Estilos de media queries para hacer el diseño responsive */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .projects .project {
+        flex-basis: 100%;
+    }
+}
